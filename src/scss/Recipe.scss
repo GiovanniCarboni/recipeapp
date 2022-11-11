@@ -1,9 +1,54 @@
 .recipe {
   margin-bottom: 2rem;
+  font-size: 1.2rem;
   header {
     display: flex;
     justify-content: space-between;
     margin: 0.8rem 0;
     align-items: center;
+  }
+  &-title {
+    font-size: 1.6rem;
+  }
+}
+.cooktime-container,
+.servings-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  margin-bottom: 1rem;
+  &--title {
+    font-weight: bold;
+  }
+  &--data {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+.instructions-container {
+  &--title {
+    font-weight: bold;
+  }
+  &--text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.ingredients-container--title {
+  font-weight: bold;
+}
+
+.ingredients-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 1rem;
+  .ingredient-container {
+    display: flex;
+    gap: 1rem;
   }
 }

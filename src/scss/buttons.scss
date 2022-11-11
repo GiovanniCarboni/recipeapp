@@ -1,0 +1,15 @@
+.edit-btn,
+.delete-btn {
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+}
+
+.delete-btn {
+  img {
+    transition: 0.3s;
+    &:hover {
+      transform: rotate(-180deg);
+    }
+  }
+}
