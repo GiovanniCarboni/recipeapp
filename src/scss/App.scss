@@ -1,6 +1,7 @@
 @use "buttons";
 @use "RecipeList";
 @use "Recipe";
+@use "RecipeEdit";
 
 *,
 *:before,
@@ -17,20 +18,36 @@
   font-style: normal;
 }
 html {
-  font-size: 62.7%;
-  background-color: linen;
+  font-size: 70%;
+  background: radial-gradient(orange, orange, yellow);
   font-family: Averia, sans-serif;
   color: #333;
 }
 main {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 h1 {
   font-size: 1.5rem;
 }
 button {
   cursor: pointer;
+}
+input,
+textarea {
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-family: inherit;
+}
+input {
+  height: 2.5rem;
+}
+textarea {
+  resize: none;
+  height: 15rem;
 }
 
 /* *** */

@@ -8,8 +8,11 @@ import { RecipeContext } from "./App";
 
 export default function Recipe(props) {
   const { id, name, cooktime, servings, instructions, ingredients } = props;
-  const { handleRecipeDelete } = useContext(RecipeContext);
+  const { handleRecipeDelete, handleRecipeEdit } = useContext(RecipeContext);
 
+  function handleEdit() {
+    handleRecipeEdit(id);
+  }
   return (
     <>
       <hr />
@@ -17,14 +20,19 @@ export default function Recipe(props) {
         <header>
           <h1 className="recipe-title">{name}</h1>
           <div>
-            <button className="edit-btn">
-              <img src={editImg} alt="icon" width="20" />
+            <button
+              className="edit-btn"
+              onClick={() => {
+                handleEdit();
+              }}
+            >
+              <img src={editImg} alt="icon" width="30" />
             </button>
             <button
               className="delete-btn"
               onClick={() => handleRecipeDelete(id)}
             >
-              <img src={deleteImg} alt="icon" width="20" />
+              <img src={deleteImg} alt="icon" width="30" />
             </button>
           </div>
         </header>

@@ -3,12 +3,18 @@ import RecipeList from "./RecipeList";
 import { useState, createContext } from "react";
 import "../scss/App.scss";
 import { v4 as uuidv4 } from "uuid";
+import RecipeEdit from "./RecipeEdit";
 
 export const RecipeContext = createContext();
 const storage = localStorage.getItem("recipes");
 
 function App() {
   const [recipes, setRecipes] = useState(sampleRecipes);
+  const [selectedRecipeId, setSelectedRecipeId] = useState();
+
+  const selectedRecipe = recipes.find(
+    (recipe) => recipe.id === selectedRecipeId
+  );
 
   useEffect(() => {
     if (storage) {
@@ -22,7 +28,34 @@ function App() {
   const recipeContextValue = {
     handleRecipeAdd,
     handleRecipeDelete,
+    handleRecipeEdit,
+    handleRecipeChange,
+    handleDeselectRecipe,
   };
+
+  function handleRecipeChange(id, recipe) {
+    const newRecipes = [...recipes];
+    const index = newRecipes.findIndex((recipe) => recipe.id === id);
+    newRecipes[index] = recipe;
+    setRecipes(newRecipes);
+  }
+
+  function handleRecipeEdit(id) {
+    setSelectedRecipeId(id);
+    // highlightRecipe();
+  }
+
+  // function highlightRecipe() {
+  //   const newRecipes = [...recipes];
+  //   const index = recipes.findIndex((recipe) => recipe.id === selectedRecipeId);
+  //   newRecipes[index] = { ...newRecipes[index], background: true };
+  //   setRecipes(newRecipes);
+  //   console.log("passed highlightRecipe");
+  // }
+
+  function handleDeselectRecipe() {
+    setSelectedRecipeId("");
+  }
 
   function handleRecipeAdd() {
     const newRecipe = {
@@ -35,6 +68,7 @@ function App() {
     };
     console.log(newRecipe);
     setRecipes([newRecipe, ...recipes]);
+    setSelectedRecipeId(newRecipe.id);
   }
 
   function handleRecipeDelete(id) {
@@ -43,11 +77,10 @@ function App() {
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
-      <RecipeList
-        handleRecipeDelete={handleRecipeDelete}
-        handleRecipeAdd={handleRecipeAdd}
-        recipes={recipes}
-      ></RecipeList>
+      <main>
+        <RecipeList recipes={recipes}></RecipeList>
+        {selectedRecipeId && <RecipeEdit selectedRecipe={selectedRecipe} />}
+      </main>
     </RecipeContext.Provider>
   );
 }

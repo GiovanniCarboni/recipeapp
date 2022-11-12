@@ -8,7 +8,7 @@ export default function RecipeList({ recipes }) {
 
   return (
     <div className="recipe-list">
-      <div className="add-recipe-btn--container">
+      <div className="add-btn--container">
         <button onClick={() => handleRecipeAdd()}>
           <span>Add</span>
           <img src={addImg} />
