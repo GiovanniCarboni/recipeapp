@@ -33,6 +33,7 @@ h1 {
   font-size: 1.5rem;
 }
 button {
+  background-color: transparent;
   cursor: pointer;
 }
 input,
@@ -51,3 +52,7 @@ textarea {
 }
 
 /* *** */
+
+.selected {
+  background-color: rgb(237, 237, 237);
+}

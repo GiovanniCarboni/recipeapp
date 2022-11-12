@@ -11,7 +11,6 @@ const storage = localStorage.getItem("recipes");
 function App() {
   const [recipes, setRecipes] = useState(sampleRecipes);
   const [selectedRecipeId, setSelectedRecipeId] = useState();
-
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === selectedRecipeId
   );
@@ -31,7 +30,12 @@ function App() {
     handleRecipeEdit,
     handleRecipeChange,
     handleDeselectRecipe,
+    isSelected,
   };
+
+  function isSelected(id) {
+    return id === selectedRecipeId;
+  }
 
   function handleRecipeChange(id, recipe) {
     const newRecipes = [...recipes];
@@ -42,16 +46,7 @@ function App() {
 
   function handleRecipeEdit(id) {
     setSelectedRecipeId(id);
-    // highlightRecipe();
   }
-
-  // function highlightRecipe() {
-  //   const newRecipes = [...recipes];
-  //   const index = recipes.findIndex((recipe) => recipe.id === selectedRecipeId);
-  //   newRecipes[index] = { ...newRecipes[index], background: true };
-  //   setRecipes(newRecipes);
-  //   console.log("passed highlightRecipe");
-  // }
 
   function handleDeselectRecipe() {
     setSelectedRecipeId("");
@@ -72,6 +67,7 @@ function App() {
   }
 
   function handleRecipeDelete(id) {
+    setSelectedRecipeId("");
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   }
 

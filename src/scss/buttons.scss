@@ -1,8 +1,15 @@
 .edit-btn,
 .delete-btn {
-  background-color: white;
   border: none;
-  // font-size: 2rem;
+}
+
+.edit-btn {
+  img {
+    transition: 0.2s;
+    &:hover {
+      transform: scale(110%);
+    }
+  }
 }
 
 .delete-btn {
@@ -11,7 +18,7 @@
     border-radius: 50%;
     &:hover {
       background-color: rgb(255, 193, 193);
-      transform: rotate(-180deg);
+      transform: rotate(-90deg);
     }
   }
 }
@@ -27,7 +34,7 @@ i {
 
   button {
     font-family: inherit;
-    background-color: #fff;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;

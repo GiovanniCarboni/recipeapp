@@ -8,7 +8,8 @@ import { RecipeContext } from "./App";
 
 export default function Recipe(props) {
   const { id, name, cooktime, servings, instructions, ingredients } = props;
-  const { handleRecipeDelete, handleRecipeEdit } = useContext(RecipeContext);
+  const { handleRecipeDelete, handleRecipeEdit, isSelected } =
+    useContext(RecipeContext);
 
   function handleEdit() {
     handleRecipeEdit(id);
@@ -16,7 +17,7 @@ export default function Recipe(props) {
   return (
     <>
       <hr />
-      <div className="recipe">
+      <div className={isSelected(id) ? "recipe selected" : "recipe"}>
         <header>
           <h1 className="recipe-title">{name}</h1>
           <div>
