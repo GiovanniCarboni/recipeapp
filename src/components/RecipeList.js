@@ -11,7 +11,7 @@ export default function RecipeList({ recipes }) {
       <div className="add-btn--container">
         <button onClick={() => handleRecipeAdd()}>
           <span>Add</span>
-          <img src={addImg} />
+          <img src={addImg} alt="icon" />
         </button>
       </div>
       <div>
