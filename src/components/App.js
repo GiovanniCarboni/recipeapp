@@ -5,6 +5,7 @@ import "../scss/App.scss";
 import { v4 as uuidv4 } from "uuid";
 import RecipeEdit from "./RecipeEdit";
 import bookImg from "../icons/book.svg";
+import Header from "./Header";
 
 export const RecipeContext = createContext();
 const storage = localStorage.getItem("recipes");
@@ -74,7 +75,7 @@ function App() {
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
-      <header className="bar">Hello</header>
+      <Header />
       <main>
         <RecipeList recipes={recipes}></RecipeList>
         {selectedRecipeId ? (
