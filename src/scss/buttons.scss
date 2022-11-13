@@ -1,3 +1,5 @@
+@use "colors";
+
 .edit-btn,
 .delete-btn {
   border: none;
@@ -40,11 +42,10 @@ i {
     justify-content: center;
     width: 7rem;
     height: 3rem;
-    border: 2px solid #333;
+    border: 2px solid colors.$color-border;
     border-radius: 5px;
     transition: 0.3s;
     &:hover {
-      // outline: 2px solid #333;
       background-color: rgb(148, 205, 148);
     }
     img,

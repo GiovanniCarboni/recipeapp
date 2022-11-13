@@ -1,3 +1,5 @@
+@use "colors";
+@use "header";
 @use "buttons";
 @use "RecipeList";
 @use "Recipe";
@@ -19,12 +21,9 @@
 }
 html {
   font-size: 70%;
-  // background: radial-gradient(orange, orange, yellow);
-  // background: url("../icons/pizza.svg") repeat;
-  // background-size: 2rem;
-  background-color: linen;
+  background-color: colors.$color-background;
   font-family: Averia, sans-serif;
-  color: #333;
+  color: colors.$color-font;
 }
 h1 {
   font-size: 1.5rem;
@@ -36,16 +35,15 @@ button {
 input,
 textarea {
   padding: 1rem;
-  border: 1px solid #333;
+  border: 1px solid colors.$color-border;
   border-radius: 5px;
   font-family: inherit;
-  // background-color: rgb(243, 208, 173);
-  border: 1px solid black;
+  outline: 1px solid colors.$color-border;
+  border: none;
   transition: 0.05s;
   &:active,
   &:focus {
-    border: none;
-    outline: 3px solid rgb(215, 150, 126);
+    outline: 3px solid colors.$color-accent;
   }
 }
 input {
@@ -64,7 +62,7 @@ hr {
 /* *** */
 
 .selected {
-  background-color: linen;
+  background-color: colors.$color-background;
 }
 
 main {
@@ -87,7 +85,7 @@ main {
   width: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: colors.$color-scrollbar;
   border-radius: 20px;
 }
 ::-webkit-scrollbar-track {
@@ -104,30 +102,4 @@ main {
   background-color: #aaa;
   color: #ddd;
   gap: 2rem;
-}
-
-.bar {
-  position: fixed;
-  height: 7rem;
-  background-color: rgb(130, 131, 77);
-  width: 100%;
-  box-shadow: 0px 2px #aaa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  input {
-    height: 3rem;
-    width: 30rem;
-    border: none;
-  }
-  button {
-    height: 3rem;
-    border-radius: 8px;
-    background-color: #ccc;
-    border: none;
-    &:active {
-      background-color: #aaa;
-    }
-  }
 }

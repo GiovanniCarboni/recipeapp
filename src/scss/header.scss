@@ -1,0 +1,30 @@
+@use "colors";
+
+.bar {
+  position: fixed;
+  height: 7rem;
+  background-color: colors.$color-main;
+  width: 100%;
+  border-bottom: 5px solid colors.$color-accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  input {
+    height: 3rem;
+    width: 30rem;
+    outline: none;
+  }
+  button {
+    height: 3rem;
+    border-radius: 8px;
+    background-color: colors.$color-secondary;
+    font-weight: bold;
+    border: none;
+    transition: 0.2s;
+    &:active {
+      background-color: colors.$color-accent;
+      color: colors.$color-background;
+    }
+  }
+}
