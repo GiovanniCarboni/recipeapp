@@ -4,6 +4,7 @@ import { useState, createContext } from "react";
 import "../scss/App.scss";
 import { v4 as uuidv4 } from "uuid";
 import RecipeEdit from "./RecipeEdit";
+import bookImg from "../icons/book.svg";
 
 export const RecipeContext = createContext();
 const storage = localStorage.getItem("recipes");
@@ -73,9 +74,17 @@ function App() {
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
+      <header className="bar">Hello</header>
       <main>
         <RecipeList recipes={recipes}></RecipeList>
-        {selectedRecipeId && <RecipeEdit selectedRecipe={selectedRecipe} />}
+        {selectedRecipeId ? (
+          <RecipeEdit selectedRecipe={selectedRecipe} />
+        ) : (
+          <div className="edit">
+            <img src={bookImg} alt="icon" width="45" />
+            <span>Add or edit a recipe</span>
+          </div>
+        )}
       </main>
     </RecipeContext.Provider>
   );

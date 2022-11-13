@@ -20,7 +20,8 @@
 html {
   font-size: 70%;
   // background: radial-gradient(orange, orange, yellow);
-  background-color: white;
+  background: url("../icons/pizza.svg") repeat;
+  background-size: 1rem;
   font-family: Averia, sans-serif;
   color: #333;
 }
@@ -37,6 +38,14 @@ textarea {
   border: 1px solid #333;
   border-radius: 5px;
   font-family: inherit;
+  // background-color: rgb(243, 208, 173);
+  border: 1px solid black;
+  transition: 0.05s;
+  &:active,
+  &:focus {
+    border: none;
+    outline: 3px solid rgb(215, 150, 126);
+  }
 }
 input {
   height: 2.5rem;
@@ -44,6 +53,11 @@ input {
 textarea {
   resize: none;
   height: 15rem;
+}
+hr {
+  border: 1.5px solid #bbb;
+  background-color: #ddd;
+  border-radius: 5px;
 }
 
 /* *** */
@@ -53,28 +67,48 @@ textarea {
 }
 
 main {
-  max-width: 1200px;
+  padding-top: 7rem;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  width: 100%;
+  height: 100vh;
   .recipe-edit--container,
-  .recipe-list {
+  .recipe-list,
+  .edit {
     padding: 3rem 2rem;
-    width: 100%;
-    height: 100vh;
     overflow-y: scroll;
-    &::-webkit-scrollbar {
-      width: 5px;
-    }
-    &::-webkit-scrollbar-track {
-      background: white;
-    }
-    &::-webkit-scrollbar-thumb {
-      width: 8px;
-      background: #ccc;
-      border-radius: 20px;
-    }
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.edit {
+  text-align: center;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  justify-content: center;
+  background-color: #aaa;
+  color: #ddd;
+  gap: 2rem;
+}
+
+.bar {
+  position: fixed;
+  height: 7rem;
+  background: radial-gradient(orange, orange, yellow);
+  width: 100%;
+  box-shadow: 0px 2px #aaa;
 }
