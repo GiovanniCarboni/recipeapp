@@ -17,7 +17,7 @@ export default function Recipe(props) {
   return (
     <>
       <hr />
-      <div className={isSelected(id) ? "recipe selected" : "recipe"}>
+      <div id={id} className={isSelected(id) ? "recipe selected" : "recipe"}>
         <header>
           <h1 className="recipe-title">{name}</h1>
           <div>

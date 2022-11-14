@@ -15,6 +15,24 @@
     width: 30rem;
     outline: none;
   }
+}
+
+.results--container {
+  position: absolute;
+  top: 5rem;
+  width: 30rem;
+  max-height: 20rem;
+  overflow-y: scroll;
+  background-color: colors.$color-background;
+  box-shadow: 2px 2px 5px colors.$color-border;
+  color: black;
+  border-radius: 5px;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  display: none;
   button {
     height: 3rem;
     border-radius: 8px;
@@ -22,9 +40,12 @@
     font-weight: bold;
     border: none;
     transition: 0.2s;
-    &:active {
+    &:hover {
       background-color: colors.$color-accent;
       color: colors.$color-background;
     }
   }
+}
+.display {
+  display: flex;
 }
